@@ -7,5 +7,5 @@ composer.phar
 
 # Ignore DB directory
 /data/
-# You should ignore your environment file
+# You should ignore your environment file in production
 # .env
