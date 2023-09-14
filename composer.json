@@ -1,0 +1,20 @@
+{
+    "name": "webdevwhispers/boilerplate-php",
+    "description": "Este repositorio es tu punto de partida ideal para proyectos basados en PHP. Está configurado con herramientas modernas y servicios que harán de tu desarrollo una experiencia más agradable y profesional.",
+    "license": "MIT",
+    "autoload": {
+        "psr-12": {
+            "Webdevwhispers\\BoilerplatePhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WebDevWhispers",
+            "email": "webdevwhispers@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
+}

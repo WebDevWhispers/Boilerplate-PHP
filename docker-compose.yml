@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    ports:
+      - ${WEB_HOST_PORT}:${WEB_CONTAINER_PORT}
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}  # Contraseña del usuario root
+      - MYSQL_DATABASE=${DB_NAME}       # Nombre de tu base de datos
+      - MYSQL_USER=${DB_USER}                # Nombre de usuario para tu aplicación
+      - MYSQL_PASSWORD=${DB_PASSWORD}        # Contraseña para el usuario de tu aplicación
+    volumes:
+      - ./data/db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - ${DB_MANAGER_HOST_PORT}:${DB_MANAGER_CONTAINER_PORT}
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=rootpassword

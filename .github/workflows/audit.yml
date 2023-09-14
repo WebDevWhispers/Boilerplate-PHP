@@ -1,0 +1,24 @@
+name: Code audit
+
+on: [push, pull_request]
+
+jobs:
+  audit:
+    name: Code audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇ Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest # or any other PHP version you are using
+          extensions: mbstring, ctype, iconv, xml, dom
+          tools: composer, cs2pr
+
+      - name: 💾 Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: 🔍 Run PHP_CodeSniffer
+        run: ./vendor/bin/phpcs --standard=PSR12 --report=checkstyle ./src/ | cs2pr
