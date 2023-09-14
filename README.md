@@ -53,7 +53,7 @@ Este repositorio es tu punto de partida ideal para proyectos basados en PHP. Est
 
 Para mantener un flujo de trabajo limpio:
 
-1. **Nunca hagas push directamente a la rama `main`**. Esta rama debería tener restricciones de push y cualquier cambio directo puede causar conflictos y complicaciones.
+1. **Nunca hagas push directamente a la rama `main`**. Esta rama debería tener restricciones de push ya que cualquier cambio directo puede causar conflictos y complicaciones.
 
 2. **Crea siempre una rama aparte** para tus cambios y características. Asegúrate de que sus nombres sean descriptivos y sigan las convenciones establecidas.
 
